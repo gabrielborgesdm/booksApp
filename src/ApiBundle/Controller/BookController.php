@@ -11,13 +11,15 @@ use FOS\RestBundle\View\View as FOSView;
 
 class DefaultController extends FOSRestController
 {
-
-    public function postBookAction() {
-      try {
-        //$entity = $this->getCurriculumService()->save($request);
-        return FOSView::create("Deu Bom", Codes::200);
-      } catch (\Exception $e) {
-        return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
-      }
+  public function getBookService(){
+    return $this->get("api.book.service");
+  }
+  public function postBookAction() {
+    try {
+      $entity = $this->getBookService()->save($request);
+      return FOSView::create("Deu Bom", Codes::200);
+    } catch (\Exception $e) {
+      return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
     }
+  }
 }

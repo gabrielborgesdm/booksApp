@@ -4,7 +4,7 @@ parameters:
 #    parameter_name: value
 
 services:
-    api.bookService:
+    api.book.service:
         class: ApiBundle\Service\BookService
         public: true
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]

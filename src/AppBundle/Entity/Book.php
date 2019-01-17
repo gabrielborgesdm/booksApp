@@ -27,6 +27,8 @@ class Book
      * @var int
      *
      * @ORM\Column(name="publisher_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Publisher")
+     * @ORM\JoinColumn(name="publisher_id", referencedColumnName="id")
      */
     private $publisherId;
 
