@@ -8,7 +8,7 @@ use AppBundle\Entity\Book;
 use AppBundle\Entity\Author;
 use AppBundle\Entity\Publisher;
 
-class DefaultController extends BaseService
+class BookService extends BaseService
 {
     private $container;
 
@@ -22,20 +22,41 @@ class DefaultController extends BaseService
       return $this->em->getRepository('AppBundle:Book');
     }
 
-    protected function getAuthorRepository(){
-      return $this->em->getRepository('AppBundle:Author');
-    }
-
-    protected function getPublisherRepository(){
-      return $this->em->getRepository('AppBundle:Publisher');
-    }
-
     public function save($request){
-        if (!$request->get('publisher_id')) {
-            throw new \Exception("This Book Publisher doesn't exist in our system");
-        } else{
-          dump($this->getPublisherRepository()->findBy(1));
-        }
+
+      if (!$request->get('publisher')) {
+          throw new \Exception("The Book Publisher cannot be empty");
+      }
+
+      if (!$request->get('publishing_date')) {
+          throw new \Exception("Publishing date cannot be empty");
+      }
+
+      if (!$request->get('book_name')) {
+          throw new \Exception("The Book Name cannot be empty");
+      }
+
+      if (!$request->get('pages')) {
+          throw new \Exception("Pages cannot be empty");
+      }
+
+      if (!$request->get('edition')) {
+          throw new \Exception("Edition cannot be empty");
+      }
+
+      if (!$request->get('category')) {
+          throw new \Exception("Category cannot be empty");
+      } 
+
+      $entity = new Book();
+      $entity->setPublisherId($publisher_id);
+      $entity->setBookName($book_name);
+      $entity->setPages($pages);
+      $entity->setCategory($category);
+      $entity->setEdition($edition);
+      dump($entity);
+      $this->saveOrUpdate($entity);
+      return $entity();
     }
 
 }

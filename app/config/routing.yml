@@ -1,8 +1,8 @@
 api:
-    resource: "@ApiBundle/Controller/DefaultController.php"
+    resource: "@ApiBundle/Controller/BookController.php"
     type:     rest
     prefix:   /api
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }

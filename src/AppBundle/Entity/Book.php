@@ -2,8 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,25 +22,30 @@ class Book
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="publisher_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="Publisher")
-     * @ORM\JoinColumn(name="publisher_id", referencedColumnName="id")
-     */
-    private $publisherId;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="book_name", type="string", length=255)
+     * @ORM\Column(name="book_name", type="string", length=400)
      */
     private $bookName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="publisher", type="string", length=255)
+     */
+    private $publisher;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", length=255)
+     */
+    private $author;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="publishing_date", type="date")
+     * @ORM\Column(name="publishing_date", type="datetime")
      */
     private $publishingDate;
 
@@ -54,40 +57,12 @@ class Book
     private $pages;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="edition", type="integer")
+     * @ORM\Column(name="category", type="string", length=255)
      */
+    private $category;
 
-     private $category;
-
-     /**
-      * @var string
-      *
-      * @ORM\Column(name="category", type="string", length=255)
-      */
-
-    private $edition;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Author", inversedBy="books", cascade={"persist"})
-     * @ORM\JoinTable(
-     *     name="book_author",
-     *     joinColumns={
-     *          @ORM\JoinColumn(name="book_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *          @ORM\JoinColumn(name="author_id", referencedColumnName="id")
-     *     }
-     * )
-    */
-
-    private $authors;
-
-    public function __construct()
-    {
-        $this->authors = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -97,30 +72,6 @@ class Book
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set publisherId
-     *
-     * @param integer $publisherId
-     *
-     * @return Book
-     */
-    public function setPublisherId($publisherId)
-    {
-        $this->publisherId = $publisherId;
-
-        return $this;
-    }
-
-    /**
-     * Get publisherId
-     *
-     * @return int
-     */
-    public function getPublisherId()
-    {
-        return $this->publisherId;
     }
 
     /**
@@ -145,6 +96,54 @@ class Book
     public function getBookName()
     {
         return $this->bookName;
+    }
+
+    /**
+     * Set publisher
+     *
+     * @param string $publisher
+     *
+     * @return Book
+     */
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $publisher;
+
+        return $this;
+    }
+
+    /**
+     * Get publisher
+     *
+     * @return string
+     */
+    public function getPublisher()
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return Book
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 
     /**
@@ -196,29 +195,12 @@ class Book
     }
 
     /**
-     * Set edition
+     * Set category
      *
-     * @param integer $edition
+     * @param string $category
      *
      * @return Book
      */
-    public function setEdition($edition)
-    {
-        $this->edition = $edition;
-
-        return $this;
-    }
-
-    /**
-     * Get edition
-     *
-     * @return int
-     */
-    public function getEdition()
-    {
-        return $this->edition;
-    }
-
     public function setCategory($category)
     {
         $this->category = $category;
@@ -235,21 +217,5 @@ class Book
     {
         return $this->category;
     }
-
-    public function addAuthor(Author $author): self
-    {
-        $this->authors[] = $author;
-
-        return $this;
-    }
-
-    public function removeAuthor(Author $author): bool
-    {
-        return $this->authors->removeElement($author);
-    }
-
-    public function getAuthors(): Collection
-    {
-        return $this->authors;
-    }
 }
+
