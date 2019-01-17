@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,15 @@ class Author
      */
     private $birthCountry;
 
+    /**
+    *@ORM\ManyToMany(targetEntity="Book", mappedBy="authors")
+    */
+    private $books;
+
+    public function __construct()
+    {
+      $this->books = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -124,5 +135,21 @@ class Author
     {
         return $this->birthCountry;
     }
-}
 
+    public function addBook(Book $book): self
+    {
+      $this->books[] = $book;
+
+      return $this;
+    }
+
+    public function removeBook(Book $book):bool
+    {
+      return $this->books->removeElement($book);
+    }
+
+    public function getBooks(): Collection
+    {
+      return $this->book;
+    }
+}

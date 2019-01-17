@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,8 +56,36 @@ class Book
      *
      * @ORM\Column(name="edition", type="integer")
      */
+
+     private $category;
+
+     /**
+      * @var string
+      *
+      * @ORM\Column(name="category", type="string", length=255)
+      */
+
     private $edition;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Author", inversedBy="books", cascade={"persist"})
+     * @ORM\JoinTable(
+     *     name="book_author",
+     *     joinColumns={
+     *          @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *          @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     *     }
+     * )
+    */
+
+    private $authors;
+
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -186,5 +216,38 @@ class Book
     {
         return $this->edition;
     }
-}
 
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function addAuthor(Author $author): self
+    {
+        $this->authors[] = $author;
+
+        return $this;
+    }
+
+    public function removeAuthor(Author $author): bool
+    {
+        return $this->authors->removeElement($author);
+    }
+
+    public function getAuthors(): Collection
+    {
+        return $this->authors;
+    }
+}
