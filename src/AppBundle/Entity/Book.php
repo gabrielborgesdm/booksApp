@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,18 +31,11 @@ class Book
     private $bookName;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="publisher", type="string", length=255)
+     * @var int
+     * @ORM\ManyToOne(targetEntity="Publisher")
+     * @ORM\JoinColumn(name="publisher_id", referencedColumnName="id")
      */
     private $publisher;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
 
     /**
      * @var \DateTime
@@ -70,6 +65,24 @@ class Book
      */
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Author", inversedBy="books", cascade={"persist"})
+     * @ORM\JoinTable(
+     *     name="book_author",
+     *     joinColumns={
+     *          @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *          @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     *     }
+     * )
+     */
+    private $authors;
+
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+    }
 
     /**
      * Get the value of Id
@@ -115,54 +128,6 @@ class Book
     public function setBookName($bookName)
     {
         $this->bookName = $bookName;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Publisher
-     *
-     * @return string
-     */
-    public function getPublisher()
-    {
-        return $this->publisher;
-    }
-
-    /**
-     * Set the value of Publisher
-     *
-     * @param string publisher
-     *
-     * @return self
-     */
-    public function setPublisher($publisher)
-    {
-        $this->publisher = $publisher;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set the value of Author
-     *
-     * @param string author
-     *
-     * @return self
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
 
         return $this;
     }
@@ -262,5 +227,48 @@ class Book
 
         return $this;
     }
+
+    public function addAuthor(Author $author): self
+    {
+        $this->authors[] = $author;
+
+        return $this;
+    }
+
+    public function removeAuthor(Author $author): bool
+    {
+        return $this->authors->removeElement($author);
+    }
+
+    public function getAuthors(): Collection
+    {
+        return $this->authors;
+    }
+
+
+    /**
+     * Get the value of Publisher
+     *
+     * @return int
+     */
+    public function getPublisher()
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * Set the value of Publisher
+     *
+     * @param int publisher
+     *
+     * @return self
+     */
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $publisher;
+
+        return $this;
+    }
+ 
 
 }
