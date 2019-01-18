@@ -24,16 +24,20 @@ class BookService extends BaseService
 
     public function save($request){
 
+      if (!$request->get('book_name')) {
+          throw new \Exception("The Book Name cannot be empty");
+      }
+
       if (!$request->get('publisher')) {
-          throw new \Exception("The Book Publisher cannot be empty");
+          throw new \Exception("Publisher cannot be empty");
+      }
+
+      if (!$request->get('author')) {
+          throw new \Exception("Author cannot be empty");
       }
 
       if (!$request->get('publishing_date')) {
-          throw new \Exception("Publishing date cannot be empty");
-      }
-
-      if (!$request->get('book_name')) {
-          throw new \Exception("The Book Name cannot be empty");
+          throw new \Exception("Publishing Date cannot be empty");
       }
 
       if (!$request->get('pages')) {
@@ -46,15 +50,23 @@ class BookService extends BaseService
 
       if (!$request->get('category')) {
           throw new \Exception("Category cannot be empty");
-      } 
+      }
 
       $entity = new Book();
-      $entity->setPublisherId($publisher_id);
-      $entity->setBookName($book_name);
-      $entity->setPages($pages);
-      $entity->setCategory($category);
-      $entity->setEdition($edition);
+
+      // new \DateTime(strtotime($request->get('publishing_date')));
+      $date = new \DateTime($request->get('publishing_date'));
+
+
+      $entity->setBookName($request->get('book_name'));
+      $entity->setPublisher($request->get('publisher'));
+      $entity->setAuthor($request->get('author'));
+      $entity->setPublishingDate($date);
+      $entity->setPages($request->get('pages'));
+      $entity->setEdition($request->get('edition'));
+      $entity->setCategory($request->get('category'));
       dump($entity);
+      die();
       $this->saveOrUpdate($entity);
       return $entity();
     }

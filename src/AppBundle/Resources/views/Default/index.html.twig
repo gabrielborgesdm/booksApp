@@ -1,5 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>Hello my friend, if you wanna test this application go to /api Routes!</p>
+    <form method="post" action="{{ path('post_book') }}">
+      <p>
+        <label>Book Name</label>
+        <input type="text" name="book_name">
+      </p>
+      <p>
+        <label>Publisher</label>
+        <input type="text" name="publisher">
+      </p>
+      <p>
+        <label>Author</label>
+        <input type="text" name="author">
+      </p>
+      <p>
+        <label>Publishing Date</label>
+        <input type="date" name="publishing_date">
+      </p>
+      <p>
+        <label>Pages</label>
+        <input type="number" name="pages">
+      </p>
+      <p>
+        <label>Edition</label>
+        <input type="number" name="edition">
+      </p>
+      <p>
+        <label>Category</label>
+        <input type="text" name="category">
+      </p>
+      <p>
+        <input type="submit" value="Submit"/>
+      </p>
+    </form>
 {% endblock %}

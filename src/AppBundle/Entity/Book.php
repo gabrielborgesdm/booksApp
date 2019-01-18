@@ -24,7 +24,7 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="book_name", type="string", length=400)
+     * @ORM\Column(name="book_name", type="string", length=255)
      */
     private $bookName;
 
@@ -45,7 +45,7 @@ class Book
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="publishing_date", type="datetime")
+     * @ORM\Column(name="publishing_date", type="date")
      */
     private $publishingDate;
 
@@ -57,6 +57,13 @@ class Book
     private $pages;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="edition", type="integer")
+     */
+    private $edition;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="category", type="string", length=255)
@@ -65,7 +72,7 @@ class Book
 
 
     /**
-     * Get id
+     * Get the value of Id
      *
      * @return int
      */
@@ -75,21 +82,21 @@ class Book
     }
 
     /**
-     * Set bookName
+     * Set the value of Id
      *
-     * @param string $bookName
+     * @param int id
      *
-     * @return Book
+     * @return self
      */
-    public function setBookName($bookName)
+    public function setId($id)
     {
-        $this->bookName = $bookName;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * Get bookName
+     * Get the value of Book Name
      *
      * @return string
      */
@@ -99,21 +106,21 @@ class Book
     }
 
     /**
-     * Set publisher
+     * Set the value of Book Name
      *
-     * @param string $publisher
+     * @param string bookName
      *
-     * @return Book
+     * @return self
      */
-    public function setPublisher($publisher)
+    public function setBookName($bookName)
     {
-        $this->publisher = $publisher;
+        $this->bookName = $bookName;
 
         return $this;
     }
 
     /**
-     * Get publisher
+     * Get the value of Publisher
      *
      * @return string
      */
@@ -123,21 +130,21 @@ class Book
     }
 
     /**
-     * Set author
+     * Set the value of Publisher
      *
-     * @param string $author
+     * @param string publisher
      *
-     * @return Book
+     * @return self
      */
-    public function setAuthor($author)
+    public function setPublisher($publisher)
     {
-        $this->author = $author;
+        $this->publisher = $publisher;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get the value of Author
      *
      * @return string
      */
@@ -147,21 +154,21 @@ class Book
     }
 
     /**
-     * Set publishingDate
+     * Set the value of Author
      *
-     * @param \DateTime $publishingDate
+     * @param string author
      *
-     * @return Book
+     * @return self
      */
-    public function setPublishingDate($publishingDate)
+    public function setAuthor($author)
     {
-        $this->publishingDate = $publishingDate;
+        $this->author = $author;
 
         return $this;
     }
 
     /**
-     * Get publishingDate
+     * Get the value of Publishing Date
      *
      * @return \DateTime
      */
@@ -171,21 +178,21 @@ class Book
     }
 
     /**
-     * Set pages
+     * Set the value of Publishing Date
      *
-     * @param integer $pages
+     * @param \DateTime publishingDate
      *
-     * @return Book
+     * @return self
      */
-    public function setPages($pages)
+    public function setPublishingDate(\DateTime $publishingDate)
     {
-        $this->pages = $pages;
+        $this->publishingDate = $publishingDate;
 
         return $this;
     }
 
     /**
-     * Get pages
+     * Get the value of Pages
      *
      * @return int
      */
@@ -195,11 +202,59 @@ class Book
     }
 
     /**
-     * Set category
+     * Set the value of Pages
      *
-     * @param string $category
+     * @param int pages
      *
-     * @return Book
+     * @return self
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Edition
+     *
+     * @return int
+     */
+    public function getEdition()
+    {
+        return $this->edition;
+    }
+
+    /**
+     * Set the value of Edition
+     *
+     * @param int edition
+     *
+     * @return self
+     */
+    public function setEdition($edition)
+    {
+        $this->edition = $edition;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of Category
+     *
+     * @param string category
+     *
+     * @return self
      */
     public function setCategory($category)
     {
@@ -208,14 +263,4 @@ class Book
         return $this;
     }
 
-    /**
-     * Get category
-     *
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }
-
