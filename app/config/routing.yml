@@ -1,7 +1,12 @@
-api:
+api_book:
     resource: "@ApiBundle/Controller/BookController.php"
     type:     rest
-    prefix:   /api
+    prefix:   /api/book
+
+api_author:
+    resource: "@ApiBundle/Controller/AuthorController.php"
+    type:     rest
+    prefix:   /api/author
 
 app_homepage:
     path:     /

@@ -18,7 +18,6 @@ class BookService extends BaseService
       $this->container = $container;
     }
 
-
     protected function getRepository(){
       return $this->em->getRepository('AppBundle:Book');
     }
@@ -61,6 +60,10 @@ class BookService extends BaseService
       }else{
 
         $author = $this->getAuthorRepository()->find($request->get('author'));
+        if(!$author){
+          throw new \Exception("Author isn't valid");
+        }
+
         $entity->addAuthor($author);
 
         $j = 0;
@@ -69,6 +72,9 @@ class BookService extends BaseService
           if($request->get("author" . $i)){
 
             $author = $this->getAuthorRepository()->find($request->get("author" . $i));
+            if(!$author){
+              throw new \Exception("Author isn't valid");
+            }
             $entity->addAuthor($author);
             $i++;
           } else{

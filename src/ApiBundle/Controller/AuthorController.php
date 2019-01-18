@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 
-class BookController extends FOSRestController
+class AuthorController extends FOSRestController
 {
-  public function getBookService(){
-    return $this->get("api.book.service");
+  public function getAuthorService(){
+    return $this->get("api.author.service");
   }
-  public function postBookAction(Request $request) {
+  public function postAuthorAction(Request $request) {
     try {
-      $entity = $this->getBookService()->save($request);
+      $entity = $this->getAuthorService()->save($request);
       return FOSView::create($entity, 200);
     } catch (\Exception $e) {
       return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);

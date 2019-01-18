@@ -8,3 +8,8 @@ services:
         class: ApiBundle\Service\BookService
         public: true
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+    api.author.service:
+        class: ApiBundle\Service\AuthorService
+        public: true
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
