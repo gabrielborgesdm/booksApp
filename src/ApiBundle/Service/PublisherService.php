@@ -4,10 +4,10 @@ namespace ApiBundle\Service;
 
 use AppBundle\Service\BaseService;
 use Doctrine\ORM\EntityManager;
-use AppBundle\Entity\Author;
+use AppBundle\Entity\Publisher;
 use AppBundle\Entity\Country;
 
-class AuthorService extends BaseService
+class PublisherService extends BaseService
 {
     private $container;
 
@@ -17,7 +17,7 @@ class AuthorService extends BaseService
     }
 
     protected function getRepository(){
-      return $this->em->getRepository('AppBundle:Author');
+      return $this->em->getRepository('AppBundle:Publisher');
     }
 
     protected function getCountryRepository(){
@@ -26,19 +26,12 @@ class AuthorService extends BaseService
 
     public function save($request){
 
-      $entity = new Author();
+      $entity = new Publisher();
 
-      if (!$request->get('author_name')) {
-          throw new \Exception("The Author Name cannot be empty");
+      if (!$request->get('publisher_name')) {
+          throw new \Exception("The Publisher Name cannot be empty");
       }
-      $entity->setAuthorName($request->get('author_name'));
-
-      if (!$request->get('birth_date')) {
-          throw new \Exception("Birth Date cannot be empty");
-      }
-      $date = new \DateTime($request->get('birth_date'));
-      $entity->setBirthDate($date);
-
+      $entity->setPublisherName($request->get('publisher_name'));
 
       if (!$request->get('country')) {
           throw new \Exception("Birth Country cannot be empty");

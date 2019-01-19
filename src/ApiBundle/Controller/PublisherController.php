@@ -11,33 +11,33 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 
-class AuthorController extends FOSRestController
+class PublisherController extends FOSRestController
 {
-  public function getAuthorService(){
-    return $this->get("api.author.service");
+  public function getPublisherService(){
+    return $this->get("api.publisher.service");
   }
 
-  public function getAuthorsAction(Request $request){
+  public function getPublishersAction(Request $request){
     try{
-      $entity = $this->getAuthorService()->findAll();
+      $entity = $this->getPublisherService()->findAll();
       return FOSView::create($entity, Codes::HTTP_OK);
     } catch(\Exception $e) {
       return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
     }
   }
 
-  public function getAuthorAction($id){
+  public function getPublisherAction($id){
     try{
-      $entity = $this->getAuthorService()->find($id);
+      $entity = $this->getPublisherService()->find($id);
       return FOSView::create($entity, Codes::HTTP_OK);
     } catch(\Exception $e) {
       return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
     }
   }
 
-  public function postAuthorAction(Request $request) {
+  public function postPublisherAction(Request $request) {
     try {
-      $entity = $this->getAuthorService()->save($request);
+      $entity = $this->getPublisherService()->save($request);
       return FOSView::create($entity, 200);
     } catch (\Exception $e) {
       return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);

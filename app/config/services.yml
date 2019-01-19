@@ -13,3 +13,8 @@ services:
         class: ApiBundle\Service\AuthorService
         public: true
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+    api.publisher.service:
+        class: ApiBundle\Service\PublisherService
+        public: true
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]

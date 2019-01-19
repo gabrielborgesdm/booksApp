@@ -42,7 +42,7 @@ abstract class BaseService {
 
     }
 
-    public function listAll() {
+    public function findAll() {
 		return $this->getRepository()->findAll();
 	}
 

@@ -16,6 +16,26 @@ class BookController extends FOSRestController
   public function getBookService(){
     return $this->get("api.book.service");
   }
+
+
+  public function getBooksAction(Request $request){
+    try{
+      $entity = $this->getBookService()->findAll();
+      return FOSView::create($entity, Codes::HTTP_OK);
+    } catch(\Exception $e) {
+      return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
+    }
+  }
+
+  public function getBookAction($id){
+    try{
+      $entity = $this->getBookService()->find($id);
+      return FOSView::create($entity, Codes::HTTP_OK);
+    } catch(\Exception $e) {
+      return FOSView::create(['error'=>$e->getMessage()], Codes::HTTP_BAD_REQUEST);
+    }
+  }
+
   public function postBookAction(Request $request) {
     try {
       $entity = $this->getBookService()->save($request);

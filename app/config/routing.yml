@@ -8,6 +8,11 @@ api_author:
     type:     rest
     prefix:   /api/author
 
+api_publisher:
+    resource: "@ApiBundle/Controller/PublisherController.php"
+    type:     rest
+    prefix:   /api/publisher
+
 app_homepage:
     path:     /
     defaults: { _controller: AppBundle:Default:index }
