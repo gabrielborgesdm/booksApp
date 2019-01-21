@@ -19,6 +19,7 @@ class PublisherController extends FOSRestController
 
   public function getPublishersAction(Request $request){
     try{
+      
       $entity = $this->getPublisherService()->findAll();
       return FOSView::create($entity, Codes::HTTP_OK);
     } catch(\Exception $e) {

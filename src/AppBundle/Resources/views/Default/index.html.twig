@@ -1,37 +1,208 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <form method="post" action="{{ path('post_book') }}">
-      <p>
-        <label>Book Name</label>
-        <input type="text" name="book_name">
-      </p>
-      <p>
-        <label>Publisher</label>
-        <input type="text" name="publisher">
-      </p>
-      <p>
-        <label>Author</label>
-        <input type="text" name="author">
-      </p>
-      <p>
-        <label>Publishing Date</label>
-        <input type="date" name="publishing_date">
-      </p>
-      <p>
-        <label>Pages</label>
-        <input type="number" name="pages">
-      </p>
-      <p>
-        <label>Edition</label>
-        <input type="number" name="edition">
-      </p>
-      <p>
-        <label>Category</label>
-        <input type="text" name="category">
-      </p>
-      <p>
-        <input type="submit" value="Submit"/>
-      </p>
-    </form>
+	<div class="main-wrapper-first">
+		<header>
+			<div class="container">
+				<div class="header-wrap">
+					<div class="header-top d-flex justify-content-between align-items-center">
+						<div class="logo">
+							<a href="index.html"><img src="img/logo.png') }}" alt=""></a>
+						</div>
+						<div class="main-menubar d-flex align-items-center">
+							<nav class="hide">
+								<a href="index.html">Home</a>
+								<a href="generic.html">Search for Books</a>
+								<a href="elements.html">Login</a>
+							</nav>
+							<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	<div class="main-wrapper">
+		<div class="active-banner-slider">
+			<div class="item d-flex align-items-center">
+				<div class="container">
+					<div class="content">
+						<h1 class="text-white text-uppercase">Instead of watching TV <br> you could have fun in other ways</h1>
+						<p class="text-white">Take some time for reading. Find the book you want to!</p>
+						<a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="item d-flex align-items-center">
+				<div class="container">
+					<div class="content">
+						<h1 class="text-white text-uppercase">Instead of watching TV <br> you could have fun in other ways</h1>
+						<p class="text-white">Take some time for reading. Find the book you want to!</p>
+						<a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="item d-flex align-items-center">
+				<div class="container">
+					<div class="content">
+						<h1 class="text-white text-uppercase">Instead of watching TV <br> you could have fun in other ways</h1>
+						<p class="text-white">Take some time for reading. Find the book you want to!</p>
+						<a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="main-wrapper">
+		<!-- Start Feature Area -->
+		<section class="featured-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="single-feature">
+							<div class="icon">
+								<span class="lnr lnr-sun"></span>
+							</div>
+							<div class="desc text-center">
+								<h6 class="title text-uppercase">Crazy Adventures</h6>
+								<p>Go through this adventure! Adventure? Is it a adventure? We're going into a adventure!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="single-feature">
+							<div class="icon">
+								<span class="lnr lnr-magnifier"></span>
+							</div>
+							<div class="desc text-center">
+								<h6 class="title text-uppercase">Search</h6>
+								<p>Now it's possible to find your book by searching in our system</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="single-feature">
+							<div class="icon">
+								<span class="lnr lnr-book"></span>
+							</div>
+							<div class="desc text-center">
+								<h6 class="title text-uppercase">Books</h6>
+								<p>Different types of books for different types of tastes</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="single-feature">
+							<div class="icon">
+								<span class="lnr lnr-book"></span>
+							</div>
+							<div class="desc text-center">
+								<h6 class="title text-uppercase">Convenience</h6>
+								<p>There's no need for you to go in your library without knowing if the book is or not available</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Feature Area -->
+		<!-- Start Story Area -->
+		<section class="story-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-3">
+						<div class="story-title">
+							<h3 class="text-white">A mutual love</h3>
+							<span class="text-uppercase text-white">Making your life easier</span>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="story-box">
+							<h6 class="text-uppercase">From the part of beginning</h6>
+							<p>This website was developed with the goal of making things easier for who loves to read! Find the book you want to see if it's still available to rent!</p>
+							<a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Story Area -->
+		<!-- Start Feature Area -->
+		<section class="featured-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="text-center text-uppercase">Search for your book</h3>
+						<>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Feature Area -->
+
+		<!-- Start Footer Widget Area -->
+		<section class="footer-widget-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="single-widget d-flex flex-wrap justify-content-between">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="lnr lnr-pushpin"></span>
+							</div>
+							<div class="desc">
+								<h6 class="title text-uppercase">Address</h6>
+								<p>56/8, panthapath, west <br> dhanmondi, kalabagan, <br>Dhaka - 1205</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="single-widget d-flex flex-wrap justify-content-between">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="lnr lnr-earth"></span>
+							</div>
+							<div class="desc">
+								<h6 class="title text-uppercase">Email Address</h6>
+								<div class="contact">
+									<a href="mailto:info@dataarc.com">info@dataarc.com</a> <br>
+									<a href="mailto:support@dataarc.com">support@dataarc.com</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="single-widget d-flex flex-wrap justify-content-between">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="lnr lnr-phone"></span>
+							</div>
+							<div class="desc">
+								<h6 class="title text-uppercase">Phone Number</h6>
+								<div class="contact">
+									<a href="tel:1545">012 4562 982 3612</a> <br>
+									<a href="tel:54512">012 6321 956 4587</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<div class="container">
+					<div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
+						<div class="logo">
+							<a href="index.html"><img height="30" src="{{ asset('img/bookLogo.png') }}" alt=""></a>
+						</div>
+						<div class="copy-right-text">Copyright &copy; 2017  |  All rights reserved. This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>
+						<div class="footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</section>
+		<!-- End Footer Widget Area -->
+
+	</div>
 {% endblock %}
