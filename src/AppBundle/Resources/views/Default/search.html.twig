@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <div class="main-wrapper-first">
+    <header>
+      <div class="container">
+        <div class="header-wrap">
+          <div class="header-top d-flex justify-content-between align-items-center">
+            <div class="logo"><span class="lead">BooksApp</span>
+            </div>
+            <div class="main-menubar d-flex align-items-center">
+              <nav class="hide">
+                <a href="index.html">Home</a>
+                <a href="{{ path("app_search") }}">Search for Books</a>
+                <a href="#">Login</a>
+              </nav>
+              <div class="menu-bar">
+                <span class="lnr lnr-menu"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="main-wrapper">
+    <div class="banner-area">
+      <div class="container">
+        <div class="row justify-content-center generic-height align-items-center">
+          <div class="col-lg-8">
+            <div class="banner-content text-center">
+              <span class="text-white top text-uppercase">You can search whatever penis you want</span>
+              <h1 class="text-white text-uppercase">Search Page</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Feature Area -->
+<section class="featured-area">
+  <div class="container">
+    <div class="row">
+      {% for book in books %}
+      <div class="col-4 mx-1 card" >
+        <div class="card-body">
+          <h5 class="card-title">{{ book.bookName }}</h5>
+          <p class="card-text">Author: {{ book.author}}</p>
+          <p class="card-text">Pages: {{ book.pages }}</p>
+          <p class="card-text">Edition: {{ book.edition }}</p>
+          <a href="#" class="btn btn-primary">More Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End Feature Area -->
+
+    <!-- Start Footer Widget Area -->
+    <section class="footer-widget-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="single-widget d-flex flex-wrap justify-content-between">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="lnr lnr-pushpin"></span>
+              </div>
+              <div class="desc">
+                <h6 class="title text-uppercase">Address</h6>
+                <p>56/8, panthapath, west
+                  <br>
+                  dhanmondi, kalabagan,
+                  <br>Dhaka - 1205</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-widget d-flex flex-wrap justify-content-between">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="lnr lnr-earth"></span>
+              </div>
+              <div class="desc">
+                <h6 class="title text-uppercase">Email Address</h6>
+                <div class="contact">
+                  <a href="mailto:d@c.c">Send your e-mail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-widget d-flex flex-wrap justify-content-between">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="lnr lnr-phone"></span>
+              </div>
+              <div class="desc">
+                <h6 class="title text-uppercase">Phone Number</h6>
+                <div class="contact">
+                  <a href="tel:1545">012 4562 982 3612</a>
+                  <br>
+                  <a href="tel:54512">012 6321 956 4587</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
+            <div class="logo">
+              <a href="index.html"><img height="30" src="{{ asset('img/bookLogo.png') }}" alt=""></a>
+            </div>
+            <div class="copy-right-text">Copyright &copy; 2017 | All rights reserved.</div>
+            <div class="footer-social">
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-dribbble"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-behance"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- End Footer Widget Area -->
+
+  </div>
+
+
+{% endblock %}

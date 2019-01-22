@@ -44,9 +44,11 @@ class AuthorService extends BaseService
           throw new \Exception("Birth Country cannot be empty");
       }
       else {
-        if(empty($this->getCountryRepository()->find($request->get('country')))){
+        $country = $this->getCountryRepository()->find($request->get('country'));
+        if(empty($country)){
           throw new \Exception("Country isn't valid");
         }
+        $entity->setCountry($country);
       }
 
       $this->saveOrUpdate($entity);
