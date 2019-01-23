@@ -4,8 +4,18 @@ Symfony Standard Edition
 Welcome to the Symfony Standard Edition - a fully-functional Symfony
 application that you can use as the skeleton for your new applications.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+Installation?
+--------------
+
+  * bin/console composer install;
+
+  * bin/console doctrine:database:create;
+
+  * bin/console doctrine:schema:update --force;
+
+  * bin/console doctrine:fixtures:load;
+  
+  * bin/console server:run
 
 What's inside?
 --------------
