@@ -21,8 +21,11 @@ class DefaultController extends Controller
     public function searchAction(Request $request)
     {
       $arrayBook = [];
+      (empty($_GET["page"]))? $page = 1 : $page = intval($_GET["page"]);
+      (empty($_GET["search"]))? $search = 0 : $search = $_GET["search"];
 
       $entity = $this->getBookService()->findAll();
+
       foreach ($entity as $b) {
         $array = [];
         $array["bookName"] = $b->getBookName();
@@ -41,6 +44,12 @@ class DefaultController extends Controller
         array_push($arrayBook, $array);
       }
 
-      return $this->render('AppBundle:Default:search.html.twig', ['books'=>$arrayBook]);
+
+
+      if($page < 1){
+        $page = 1;
+      }
+
+      return $this->render('AppBundle:Default:search.html.twig', ['books'=>$arrayBook, 'page'=>$page]);
     }
 }
