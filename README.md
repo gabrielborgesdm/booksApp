@@ -4,10 +4,12 @@ Symfony Standard Edition
 Welcome to the Symfony Standard Edition - a fully-functional Symfony
 application that you can use as the skeleton for your new applications.
 
-Installation?
+Installation
 --------------
 
-  * bin/console composer install;
+  * Install composer then run the following commands inside the root project folder: 
+  
+  * composer install;
 
   * bin/console doctrine:database:create;
 
