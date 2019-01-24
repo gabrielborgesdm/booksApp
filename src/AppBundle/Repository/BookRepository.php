@@ -10,4 +10,12 @@ namespace AppBundle\Repository;
  */
 class BookRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function loadUserByUsername($username) {
+    return $this->createQueryBuilder('u')
+        ->where('u.username = :username or u.email = :email')
+        ->setParameter('username', $username)
+        ->setParameter('email', $username)
+        ->getQuery()
+        ->getOneOrNullResult();
+  }
 }
