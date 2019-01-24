@@ -7,7 +7,7 @@ application that you can use as the skeleton for your new applications.
 Installation
 --------------
 
-  * Install composer then run the following commands inside the root project folder: 
+  * Install composer in your computer then run the following commands inside the root project folder: 
   
   * composer install;
 
