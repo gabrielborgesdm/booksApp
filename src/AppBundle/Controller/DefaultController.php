@@ -24,8 +24,13 @@ class DefaultController extends Controller
       (empty($_GET["page"]))? $page = 1 : $page = intval($_GET["page"]);
       (empty($_GET["search"]))? $search = 0 : $search = $_GET["search"];
 
-      $entity = $this->getBookService()->findAll();
+      if($search){
+        $entity = $this->getBookService()->getFilter($search);
 
+      } else{
+        $entity = $this->getBookService()->findAll();
+      }
+      
       foreach ($entity as $b) {
         $array = [];
         $array["bookName"] = $b->getBookName();
@@ -43,8 +48,6 @@ class DefaultController extends Controller
 
         array_push($arrayBook, $array);
       }
-
-
 
       if($page < 1){
         $page = 1;

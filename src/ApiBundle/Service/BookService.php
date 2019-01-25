@@ -109,5 +109,9 @@ class BookService extends BaseService
       return $entity;
     }
 
+    public function getFilter($filter){
+      return $entity = $this->getRepository()
+      ->getFilter($filter);
+    }
 
 }
