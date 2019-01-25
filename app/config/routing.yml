@@ -20,3 +20,16 @@ app_homepage:
 app_search:
     path:     /search
     defaults: { _controller: AppBundle:Default:search }
+
+login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:index }
+
+admin_homepage:
+    path:     /admin
+    defaults: { _controller: AppBundle:Security:admin }
+
+
+user_homepage:
+    path:     /user
+    defaults: { _controller: AppBundle:Security:user }
