@@ -1,146 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html.twig' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Wab Curriculum</title>
+{% block body %}
+  {% include '/Header/defaultHeader.html.twig' %}
+  <div class="main-wrapper">
 
-    <!--STYLESHEET-->
-    <!--=================================================-->
+    <div class="banner-area">
+        <div class="container">
+          <div class="row justify-content-center generic-height align-items-center">
+            <div class="col-12 col-md-8">
+              <div class="banner-content text-center">
+                <span class="text-white top text-uppercase">Click here to create an account</span>
+                <h1 class="text-white text-uppercase">Login Page</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!--Open Sans Font [ OPTIONAL ]-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
-
-    <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="/assets/css/nifty.min.css" rel="stylesheet">
-
-
-    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
-    <link href="/assets/css/demo/nifty-demo-icons.min.css" rel="stylesheet">
-
-
-
-    <!--Demo [ DEMONSTRATION ]-->
-    <link href="/assets/css/demo/nifty-demo.min.css" rel="stylesheet">
+      <!-- Start Feature Area -->
+      <section class="featured-area">
+        <div class="container">
+          <div class="row m-md-0 justify-content-center">
+            <p class="small text-dange text-center">&nbsp;
+              {% if error %}
+                {{ error.messageKey }}
+              {% endif %}
+            </p>
 
 
-    <!--Magic Checkbox [ OPTIONAL ]-->
-    <link href="/assets/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+            <form class="col-12" action="{{path('action_login')}}" method="post">
+                <div class="form-group">
+                    <input type="text" name="_username" class="form-control rounded-0" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="_password" class="form-control rounded-0" required="required" placeholder="Password">
+                </div>
+                <button class="genric-btn primary-border col-12" type="submit">Log in</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    <!-- End Feature Area -->
 
-
-<link href="/assets/css/custom.css" rel="stylesheet">
-
-    <!--JAVASCRIPT-->
-    <!--=================================================-->
-
-    <!--Pace - Page Load Progress Par [OPTIONAL]-->
-    <link href="/assets/plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="/assets/plugins/pace/pace.min.js"></script>
-
-
-    <!--jQuery [ REQUIRED ]-->
-    <script src="/assets/js/jquery.min.js"></script>
-
-
-    <!--BootstrapJS [ RECOMMENDED ]-->
-    <script src="/assets/js/bootstrap.min.js"></script>
-
-
-    <!--NiftyJS [ RECOMMENDED ]-->
-    <script src="/assets/js/nifty.min.js"></script>
-
-    <!--=================================================-->
-
-    <!--Background Image [ DEMONSTRATION ]-->
-    <script src="/assets/js/demo/bg-images.js"></script>
-
-
-
-
-
-    <!--=================================================
-
-    REQUIRED
-    You must include this in your project.
-
-
-    RECOMMENDED
-    This category must be included but you may modify which plugins or components which should be included in your project.
-
-
-    OPTIONAL
-    Optional plugins. You may choose whether to include it in your project or not.
-
-
-    DEMONSTRATION
-    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
-
-
-    SAMPLE
-    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
-
-
-    Detailed information and more samples can be found in the document.
-
-    =================================================-->
-
-
-</head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
-
-<body>
-	<div id="container" class="cls-container">
-
-		<!-- BACKGROUND IMAGE -->
-		<!--===================================================-->
-		<div id="bg-overlay"></div>
-
-		<!-- LOGIN FORM -->
-		<!--===================================================-->
-		<div class="cls-content">
-		    <div class="cls-content-sm panel">
-		        <div class="panel-body">
-
-					<div class="mar-ver pad-btm text-center" style="padding-bottom: 0">
-		            	<img src="/assets/img/logo-wab.png" style="width: 300px;max-width:100%"/>
-		                <h1 class="h3">Login</h1>
-						<div class="">
-						{% if error %}
-    						{{ error.messageKey }}
-						{% endif %}
-						&nbsp;
-						</div>
-		            </div>
-		            <form action="{{path('login')}}" method="post">
-		                <div class="form-group">
-		                    <input type="text" name="_username" class="form-control" placeholder="Usuário" required="required" autofocus>
-		                </div>
-		                <div class="form-group">
-		                    <input type="password" name="_password" class="form-control" required="required" placeholder="Senha">
-		                </div>
-		                <button class="btn btn-primary btn-lg btn-block" type="submit">Entrar</button>
-		            </form>
-		        </div>
-
-		        <div class="pad-all">
-		            <a href="{{path('security_password_index')}}" class="btn-link mar-rgt">Esqueceu a senha?</a>
-		        </div>
-		    </div>
-		</div>
-		<!--===================================================-->
-
-	</div>
-	<!--===================================================-->
-	<!-- END OF CONTAINER -->
-
-
-		</body>
-</html>
+    {% include '/Footer/defaultFooter.html.twig' %}
+  </div>
+{% endblock %}
