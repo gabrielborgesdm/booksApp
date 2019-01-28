@@ -25,11 +25,21 @@ app_login:
     path:     /login
     defaults: { _controller: AppBundle:Security:index }
 
+login_checker_type:
+    path:     /login/check
+    defaults: { _controller: AppBundle:Security:check }
+
 admin_homepage:
     path:     /admin
-    defaults: { _controller: AppBundle:Security:admin }
+    defaults: { _controller: AppBundle:Admin:index }
 
+admin_books:
+    path:     /admin/books
+    defaults: { _controller: AppBundle:Admin:books }
 
-user_homepage:
-    path:     /user
-    defaults: { _controller: AppBundle:Security:user }
+admin_publishers:
+    path:     /admin/publishers
+    defaults: { _controller: AppBundle:Admin:publishers }
+
+logout:
+    path:     /logout

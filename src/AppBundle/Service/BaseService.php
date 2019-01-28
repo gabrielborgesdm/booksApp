@@ -50,6 +50,7 @@ abstract class BaseService {
 		return $this->getRepository()->find($id);
 	}
 
+
   private function crypto_rand_secure($min, $max)
   {
     $range = $max - $min;

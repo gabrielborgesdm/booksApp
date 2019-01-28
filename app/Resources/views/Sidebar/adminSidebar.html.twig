@@ -1,0 +1,43 @@
+<!-- Sidebar -->
+<ul class="sidebar navbar-nav">
+  <li class="nav-item active">
+    <a class="nav-link" href="index.html">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item dropdown">
+    <li class="nav-item">
+      <a class="nav-link" href="{{ path('admin_books') }}">
+        <i class="fas fa-fw fa-book"></i>
+        <span>Books</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link">
+        <i class="fas fa-fw fa-book-reader"></i>
+        <span>Publishers</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="tables.html">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Authors</span></a>
+    </li>
+
+    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+      <h6 class="dropdown-header">Website Pages:</h6>
+      <a class="dropdown-item" href="{{ path('app_homepage') }}">Index</a>
+      <a class="dropdown-item" href="{{ path('app_search') }}">Search</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="charts.html">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Charts</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="tables.html">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Tables</span></a>
+  </li>
+</ul>

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  {% include '/Header/defaultHeader.html.twig' %}
+  {% include '/Navbar/defaultNavbar.html.twig' %}
   <div class="main-wrapper">
 
     <div class="banner-area">
@@ -21,14 +21,13 @@
       <section class="featured-area">
         <div class="container">
           <div class="row m-md-0 justify-content-center">
-            <p class="small text-dange text-center">&nbsp;
+            <p class="small text-danger text-center">&nbsp;
               {% if error %}
                 {{ error.messageKey }}
               {% endif %}
             </p>
 
-
-            <form class="col-12" action="{{path('action_login')}}" method="post">
+            <form class="col-12" action="{{path('app_login')}}" method="post">
                 <div class="form-group">
                     <input type="text" name="_username" class="form-control rounded-0" placeholder="Username" required="required">
                 </div>

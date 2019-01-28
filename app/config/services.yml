@@ -4,17 +4,28 @@ parameters:
 #    parameter_name: value
 
 services:
-    api.book.service:
-        class: ApiBundle\Service\BookService
-        public: true
-        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
-    api.author.service:
-        class: ApiBundle\Service\AuthorService
-        public: true
-        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+  api.book.service:
+    class: ApiBundle\Service\BookService
+    public: true
+    arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
-    api.publisher.service:
-        class: ApiBundle\Service\PublisherService
-        public: true
-        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+  api.country.service:
+    class: ApiBundle\Service\CountryService
+    public: true
+    arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+  api.author.service:
+    class: ApiBundle\Service\AuthorService
+    public: true
+    arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+  api.publisher.service:
+    class: ApiBundle\Service\PublisherService
+    public: true
+    arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+  login.service:
+    class: AppBundle\Service\LoginService
+    public: false
+    arguments: ["@doctrine.orm.entity_manager", "@service_container"]

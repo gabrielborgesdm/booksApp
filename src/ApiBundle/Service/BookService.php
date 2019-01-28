@@ -109,6 +109,27 @@ class BookService extends BaseService
       return $entity;
     }
 
+    public function getJson($entity){
+      $arrayBook = [];
+      foreach ($entity as $b) {
+        $array = [];
+        $array["bookName"] = $b->getBookName();
+        $array["pages"] = $b->getPages();
+        $array["publishingDate"] =  $b->getPublishingDate()->format('F d, Y');
+        $array["publisher"] = $b->getPublisher()->getPublisherName();
+        $array["edition"] = $b->getEdition();
+        $array["category"] = $b->getCategory();
+        $array["author"] = "";
+        for($i = 0; $i < count($b->getAuthors()); $i++) {
+          $array["author"] .= $b->getAuthors()[$i]->getAuthorName() . ", ";
+
+        }
+        $array["author"] = rtrim($array["author"],", ");
+
+        array_push($arrayBook, $array);
+      }
+      return $arrayBook;
+    }
     public function getFilter($filter){
       return $entity = $this->getRepository()
       ->getFilter($filter);

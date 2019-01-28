@@ -16,7 +16,7 @@ class PublisherService extends BaseService
       $this->container = $container;
     }
 
-    protected function getRepository(){
+    public function getRepository(){
       return $this->em->getRepository('AppBundle:Publisher');
     }
 

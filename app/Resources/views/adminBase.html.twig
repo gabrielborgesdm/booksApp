@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- Mobile Specific Meta -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Favicon-->
+      <link rel="shortcut icon" href="{{asset('/img/bookLogo.png')}}">
+      <!-- IE-Compatible -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- Author Meta -->
+      <meta name="author" content="Gabriel Borges">
+      <!-- Meta Description -->
+      <meta name="description" content="A simplified book application made in order to get some practice with development">
+      <!-- Meta Keyword -->
+      <meta name="keywords" content="Api Rest">
+      <!-- meta character set -->
+      <meta charset="UTF-8">
+      <!-- Site Title -->
+      <title>BOOKS APP - Admin Dashboard</title>
+
+      <script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
+
+      {% block stylesheets %}
+      <!-- Bootstrap core CSS-->
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+      <!-- Custom fonts for this template-->
+      <link rel="stylesheet" href="{{asset('/vendor/fontawesome-free-5.6.3-web/css/all.css') }}" />
+
+      <!-- Page level plugin CSS-->
+      <link href=" {{ asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+
+      <!-- Custom styles for this template-->
+      <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+      {% endblock %}
+
+    </head>
+    <body class="page-top">
+      {% block body %}{% endblock %}
+
+      {% block javascripts %}
+      <!-- Bootstrap core JavaScript-->
+      <script src="{{ asset('js/vendor/bootstrap.bundle.min.js') }}"></script>
+
+      <!-- Core plugin JavaScript-->
+      <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+      <!-- Page level plugin JavaScript-->
+      <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+      <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}"></script>
+      <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+      <!-- Custom scripts for all pages-->
+      <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+
+      <!-- Demo scripts for this page-->
+      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+      <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+      {% endblock %}
+
+    </body>
+</html>
