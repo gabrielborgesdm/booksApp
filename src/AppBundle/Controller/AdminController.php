@@ -15,6 +15,10 @@ class AdminController extends Controller
     return $this->get('api.book.service');
   }
 
+  private function getPublisherService(){
+    return $this->get('api.publisher.service');
+  }
+
   public function indexAction(Request $request)
   {
     return $this->render('AppBundle:Admin:index.html.twig');
@@ -33,7 +37,7 @@ class AdminController extends Controller
     $publisher = $this->getPublisherService()->findAll();
 
     $publisher = $this->getPublisherService()->getJson($publisher);
-    return $this->render('AppBundle:Admin:books.html.twig',["publishers"=>$publisher]);
+    return $this->render('AppBundle:Admin:publishers.html.twig',["publishers"=>$publisher]);
   }
 
   public function searchAction(Request $request)

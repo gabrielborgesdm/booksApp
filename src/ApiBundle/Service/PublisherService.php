@@ -44,10 +44,20 @@ class PublisherService extends BaseService
         $entity->setCountry($country);
       }
 
-
-
       $this->saveOrUpdate($entity);
       return $entity;
+    }
+
+    public function getJson($entity){
+      $arrayPublisher = [];
+      foreach ($entity as $b) {
+        $array = [];
+        $array["publisherName"] = $b->getPublisherName();
+        $array["country"] = $b->getCountry()->getCountryName();
+
+        array_push($arrayPublisher, $array);
+      }
+      return $arrayPublisher;
     }
 
 }
