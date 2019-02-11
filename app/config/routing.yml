@@ -41,5 +41,9 @@ admin_publishers:
     path:     /admin/publishers
     defaults: { _controller: AppBundle:Admin:publishers }
 
+admin_authors:
+    path:     /admin/authors
+    defaults: { _controller: AppBundle:Admin:authors }
+
 logout:
     path:     /logout

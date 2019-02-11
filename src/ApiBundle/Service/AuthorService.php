@@ -55,4 +55,16 @@ class AuthorService extends BaseService
       return $entity;
     }
 
+    public function getJson($entity){
+      $arrayAuthor = [];
+      foreach ($entity as $b) {
+        $array = [];
+        $array["authorName"] = $b->getAuthorName();
+        $array["country"] = $b->getCountry()->getCountryName();
+
+        array_push($arrayAuthor, $array);
+      }
+      return $arrayAuthor;
+    }
+
 }
