@@ -40,4 +40,14 @@ class DefaultController extends Controller
 
     return $this->render('AppBundle:Default:search.html.twig', ['books'=>$arrayBook, 'page'=>$page]);
   }
+
+  public function detailAction($id)
+  {
+
+    $entity = $this->getBookService()->find($id);
+
+    $entity = $this->getBookService()->getJson($entity);
+
+    return $this->render('AppBundle:Default:detail.html.twig', ['book'=>$entity]);
+  }
 }

@@ -27,7 +27,7 @@ abstract class BaseService {
         return $entity;
     }
 
-    protected function delete($entity){
+    public function delete($entity){
 
       try {
 

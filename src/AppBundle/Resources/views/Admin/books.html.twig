@@ -17,41 +17,37 @@
           <li class="breadcrumb-item active">Overview</li>
         </ol>
 
-
-
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
+            Books</div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Authors</th>
-                    <th>Publisher</th>
-                    <th>Edition</th>
+            <button type="button" class="btn btn-outline-danger mb-3 disabled" style="width:5%" id="bremove" name="books">Remove</button>
+            <button type="button" class="btn btn-outline-info mb-3 disabled" style="width:5%" id="bedit" name="books">Edit</button>
+            <table class="table table-bordered " id="tabela" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Authors</th>
+                  <th>Publisher</th>
+                  <th>Edition</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for book in books %}
+                  <tr id="{{ book.bookId }}">
+                    <td>{{ book.bookName}}</td>
+                    <td>{{ book.author}}</td>
+                    <td>{{ book.publisher}}</td>
+                    <td>{{ book.edition}}</td>
                   </tr>
-                </thead>
-
-                <tbody>
-                  {% for book in books %}
-                    <tr>
-                      <th>{{ book.bookName}}</th>
-                      <th>{{ book.author}}</th>
-                      <th>{{ book.publisher}}</th>
-                      <th>{{ book.edition}}</th>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
-
         </div>
-
       </div>
       <!-- /.container-fluid -->
 

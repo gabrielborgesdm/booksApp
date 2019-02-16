@@ -24,6 +24,8 @@
       <!-- Bootstrap core CSS-->
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
+      <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
       <!-- Custom fonts for this template-->
       <link rel="stylesheet" href="{{asset('/vendor/fontawesome-free-5.6.3-web/css/all.css') }}" />
 
@@ -42,20 +44,74 @@
       <!-- Bootstrap core JavaScript-->
       <script src="{{ asset('js/vendor/bootstrap.bundle.min.js') }}"></script>
 
-      <!-- Core plugin JavaScript-->
-      <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-      <!-- Page level plugin JavaScript-->
-      <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
-      <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}"></script>
-      <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
       <!-- Custom scripts for all pages-->
       <script src="{{ asset('js/sb-admin.min.js') }}"></script>
 
-      <!-- Demo scripts for this page-->
-      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
-      <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+
+          var table = $('#tabela').DataTable();
+          var id;
+
+          $('#tabela tbody').on( 'click', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+
+
+              $(this).removeClass('selected');
+              $('#bremove').addClass('disabled');
+              $('#bedit').addClass('disabled');
+            }
+            else {
+              table.$('tr.selected').removeClass('selected');
+              $(this).addClass('selected');
+
+              id = table.$('tr.selected').attr('id');
+              console.log(id);
+
+              $('#bremove').removeClass('disabled');
+              $('#bedit').removeClass('disabled');
+            }
+          });
+
+          $('#bremove').click( function () {
+            var name = $(this).attr('name');
+            var url;
+
+            if(name == "books"){
+              url = "/api/book/books/" + id;
+
+            } else if (name == "publishers") {
+              url = "/api/publisher/publishers/" + id;
+
+            } else{
+              url = "/api/author/authors/" + id;
+            }
+
+            $.ajax({
+                  url : url,
+                  type : 'delete',
+                  success: function (){
+                    table.row('.selected').remove().draw( false );
+                  },
+             })
+             .done(function(msg){
+                  console.log('done');
+             })
+             .fail(function(jqXHR, textStatus, msg){
+                  console.log(msg);
+             });
+           });
+
+          $('#bedit').click( function () {
+            table.row('.selected').edit().draw( false );
+          });
+
+        });
+      </script>
+
       {% endblock %}
 
     </body>

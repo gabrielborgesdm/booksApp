@@ -25,29 +25,27 @@
             <i class="fas fa-table"></i>
             Authors</div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Author Name</th>
-                    <th>Country</th>
+            <button type="button" class="btn btn-outline-danger mb-3 disabled" style="width:5%" id="bremove" name="authors">Remove</button>
+            <button type="button" class="btn btn-outline-info mb-3 disabled" style="width:5%" id="bedit" name="authors">Edit</button>
+            <table class="table table-bordered" id="tabela" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Author Name</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for author in authors %}
+                  <tr id="{{ author.authorId }}">
+                    <td>{{ author.authorName}}</td>
+                    <td>{{ author.country}}</td>
                   </tr>
-                </thead>
-
-                <tbody>
-                  {% for author in authors %}
-                    <tr>
-                      <th>{{ author.authorName}}</th>
-                      <th>{{ author.country}}</th>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
-
         </div>
-
       </div>
       <!-- /.container-fluid -->
 

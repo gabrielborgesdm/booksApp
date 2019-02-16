@@ -21,6 +21,10 @@ app_search:
     path:     /search
     defaults: { _controller: AppBundle:Default:search }
 
+app_detail:
+    path:     /detail/{id}
+    defaults: { _controller: AppBundle:Default:detail }
+
 app_login:
     path:     /login
     defaults: { _controller: AppBundle:Security:index }

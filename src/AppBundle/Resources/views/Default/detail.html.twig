@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% include '/Navbar/defaultNavbar.html.twig' %}
+  <div class="main-wrapper">
+    <div class="banner-area">
+        <div class="container">
+          <div class="row justify-content-center generic-height align-items-center">
+            <div class="col-12 col-md-8">
+              <div class="banner-content text-center">
+                <span class="text-white top text-uppercase">More information about your books</span>
+                <h1 class="text-white text-uppercase">Book Detail Page</h1>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start Feature Area -->
+    <section class="featured-area">
+      <div class="container">
+
+        <div class="row m-md-0 ">
+          {% if book is null %}
+            <p class="lead my-5 mx-auto">Sorry! There's no book in our system.</p>
+          {% else %}
+            <div class="col-12">
+              <div class="card mx-auto" style="width:25%;">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book.bookId }} - {{ book.bookName }}</h5>
+                  <p class="card-text">
+                    <ul>
+                      <li><span class="font-weight-bold">Written by:</span> {{ book.author}}</li>
+                      <li><span class="font-weight-bold">Pages:</span> {{ book.pages }}</li>
+                      <li><span class="font-weight-bold">Edition:</span> {{ book.edition }}</li>
+                      <li><span class="font-weight-bold">Publisher:</span> {{ book.publisher }}</li>
+                      <li><span class="font-weight-bold">Published:</span> {{ book.publishingDate }}</li>
+                      <li><span class="font-weight-bold">Category:</span> {{ book.category }}</li>
+                      <li><a class="genric-btn small primary-border circle mx-auto" href="{{ path('app_search') }}">Get Back</a></li>
+                    </ul>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <!-- End Feature Area -->
+
+    {% include '/Footer/defaultFooter.html.twig' %}
+  </div>
+{% endblock %}

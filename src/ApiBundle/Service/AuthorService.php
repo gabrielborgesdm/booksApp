@@ -60,6 +60,7 @@ class AuthorService extends BaseService
       foreach ($entity as $b) {
         $array = [];
         $array["authorName"] = $b->getAuthorName();
+        $array["authorId"] = $b->getId();
         $array["country"] = $b->getCountry()->getCountryName();
 
         array_push($arrayAuthor, $array);

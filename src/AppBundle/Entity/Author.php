@@ -45,7 +45,7 @@ class Author
      private $country;
 
      /**
-      * @ORM\ManyToMany(targetEntity="Book", mappedBy="authors")
+      * @ORM\ManyToMany(targetEntity="Book", mappedBy="authors", cascade={"persist"})
       */
     private $books;
 

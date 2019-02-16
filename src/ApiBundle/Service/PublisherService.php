@@ -53,6 +53,7 @@ class PublisherService extends BaseService
       foreach ($entity as $b) {
         $array = [];
         $array["publisherName"] = $b->getPublisherName();
+        $array["publisherId"] = $b->getId();
         $array["country"] = $b->getCountry()->getCountryName();
 
         array_push($arrayPublisher, $array);
